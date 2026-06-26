@@ -2,14 +2,16 @@ package com.mysite.sbb;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
 public class MainController {
 
 	@GetMapping("/sbb") // GET 방식의 HTTP 요청을 처리함. // 도메인명 & 포트는 작성 X. → 서버 설정에 따라 변하기 때문.
-	public void index() {
-		System.out.println("index");
+	@ResponseBody // 메서드의 반환 값을 뷰(템플릿)로 해석하지 않고, HttpMessageConverter를 통해 HTTP Response Body에 직접 작성함.
+	public String index() {
+		return "안녕하세요 sbb에 오신 것을 환영합니다.";
 	} //index 메서드	
 	
 } //class
