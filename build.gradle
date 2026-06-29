@@ -1,3 +1,5 @@
+// build.gradle 파일: 프로젝트의 빌드 설정, 의존성, 플러그인 등을 관리하는 Gradle 빌드 시스템의 핵심 설정 파일
+
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.5.15'
@@ -22,11 +24,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	// Spring Boot Devtools : 서버를 자동으로 재시작해서 변경 사항을 즉시 반영함.
+	// Spring Boot Devtools: 서버를 자동으로 재시작해서 변경 사항을 즉시 반영함.
 	developmentOnly 'org.springframework.boot:spring-boot-devtools' // developmentOnly: 개발 환경에만 적용. → 운영 환경에 배포되는 파일(jar, war)에는 포함 X.
-	// Lombok : 어노테이션을 통해 반복적인 코드를 자동 생성해 줌.
+	// Lombok: 어노테이션을 통해 반복적인 코드를 자동 생성해 줌.
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	// H2 DB: Java 기반의 경량 RDBMS. 주로 개발 및 테스트 환경에서 씀.
+	runtimeOnly 'com.h2database:h2'
 }
 
 tasks.named('test') {
