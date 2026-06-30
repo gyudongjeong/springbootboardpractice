@@ -31,6 +31,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	// H2 DB: Java 기반의 경량 RDBMS. 주로 개발 및 테스트 환경에서 씀.
 	runtimeOnly 'com.h2database:h2'
+	// JPA: Java 객체와 DB의 테이블을 매핑해서 CRUD 작업을 쉽게 수행하도록 돕는 ORM 표준 명세.
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 }
 
 tasks.named('test') {
