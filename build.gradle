@@ -33,6 +33,9 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	// JPA: Java 객체와 DB의 테이블을 매핑해서 CRUD 작업을 쉽게 수행하도록 돕는 ORM 표준 명세.
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	// JUnit: Java용 단위 테스트 프레임워크. 테스트 코드를 작성 및 실행해서 클래스와 메서드의 동작을 검증하고, 개별 컴포넌트(ex: Repository, Service)의 기능을 테스트함.
+	testImplementation 'org.junit.jupiter:junit-jupiter'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
