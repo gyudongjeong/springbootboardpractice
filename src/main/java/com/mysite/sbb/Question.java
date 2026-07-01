@@ -1,12 +1,15 @@
 package com.mysite.sbb;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,6 +30,11 @@ public class Question {
 	
 	private LocalDateTime createDate; //createDate: 질문 작성 일시
 	
+	@OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE) //mappedBy: 연관관계의 주인(= Answer)의 참조 필드명(= question) 지정. //CascadeType.REMOVE: Question 삭제 시, 연관된 Answer도 함께 삭제되게 함.
+	private List<Answer> answerList; //Answer Entity 참조용 필드. //'1:N' 관계에서 1개의 Question이 여러 Answer를 가질 수 있으므로, List로 관리함.
+	
 } //class: Question Entity 클래스 → SBB의 질문 저장용 DB 테이블과 매핑됨.
 
 //@Transient: Entity 클래스의 Field로는 씀. But, 테이블 컬럼으로는 매핑 X(→ JPA 영속성 매핑 대상에서 제외됨).
+
+//Question에서 연관된 Answer 목록 조회하기: question.getAnswerList();
