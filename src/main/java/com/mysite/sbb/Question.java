@@ -25,7 +25,7 @@ public class Question {
 	@Column(columnDefinition = "TEXT") //columnDefinition: 컬럼 생성 시 사용할 SQL DDL을 직접 지정함. //TEXT: 컬럼을 TEXT 타입으로 생성함. 글자 수 제한을 직접 지정하기 어려울 때 씀.
 	private String content; //content: 질문 내용
 	
-	private LocalDateTime createDate; //createDate: 질문 작성일
+	private LocalDateTime createDate; //createDate: 질문 작성 일시
 	
 } //class: Question Entity 클래스 → SBB의 질문 저장용 DB 테이블과 매핑됨.
 
